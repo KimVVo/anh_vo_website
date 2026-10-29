@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mist: #edf2ea;
+  --color-forest: #17301f;
+  --color-fern: #4f8a4b;
+  --color-lake: #1d7f93;
+  --color-marigold: #f0b43c;
+  --font-display: "Young Serif", Georgia, serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-forest);
+  font-family: var(--font-sans);
+}
+
+/* One orchestrated moment: paw prints step across the hero on load. */
+@keyframes step {
+  from { opacity: 0; transform: scale(0.6) rotate(var(--r)); }
+  to { opacity: 0.9; transform: scale(1) rotate(var(--r)); }
+}
+.paw { opacity: 0; animation: step 0.5s ease-out forwards; }
+
+@keyframes grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.bar { transform-origin: left; animation: grow 1s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .paw { animation: none; opacity: 0.9; transform: rotate(var(--r)); }
+  .bar { animation: none; }
+}
