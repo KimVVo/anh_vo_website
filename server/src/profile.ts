@@ -41,7 +41,7 @@ export const profile: Profile = {
   name: "Anh Vo",
   tagline: "📍Plano, Texas · Senior High School Student",
   about:
-    "I’ve studied in Vietnam, Utah, and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
+    "I am an international student in Vietnam. I've studied in Utah and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
   profilePhoto: "/profile-photo.jpg",
   sat: {
     math: 750,
@@ -104,20 +104,29 @@ export const profile: Profile = {
         alt: "Certificate of Recognition for Outstanding Academic Achievement in Precalculus awarded to Vo Anh in May 2025",
       },
     },
-    { text: "**Ranked 9th among 400 students** at Nguyen Hue Middle School, grade 9 (GPA 9.1/10.00)" },
+    {
+      text: "**Ranked 9th among 400 students** at Nguyen Hue Middle School, grade 9 (GPA 9.1/10.00)",
+    },
   ],
   competitions: [
     {
       text: "**Third Prize**, Ho Chi Minh City Excellent Student Competition in Literature (grade 9)",
       evidence: {
-        title: "Ho Chi Minh City Excellent Student Competition in Literature — Third Prize",
+        title:
+          "Ho Chi Minh City Excellent Student Competition in Literature — Third Prize",
         image: "/certificates/hcmc-literature-third-prize.jpg",
         alt: "Certificate and award sash for Third Prize in the city-level Literature competition",
       },
     },
-    { text: "**Second Prize**, Tan Phu District Excellent Student Competition in Literature (grade 9)" },
-    { text: "**Second Prize**, Tan Phu District Science and Engineering Competition (grade 9)" },
-    { text: "**First Prize**, “Growing Up with Books” Competition at Nguyen Hue Middle School (grade 9)" },
+    {
+      text: "**Second Prize**, Tan Phu District Excellent Student Competition in Literature (grade 9)",
+    },
+    {
+      text: "**Second Prize**, Tan Phu District Science and Engineering Competition (grade 9)",
+    },
+    {
+      text: "**First Prize**, “Growing Up with Books” Competition at Nguyen Hue Middle School (grade 9)",
+    },
   ],
   leadership: [
     {
@@ -137,9 +146,9 @@ export const profile: Profile = {
       place: "Christian Life Center Church · Layton, UT",
       dates: "Aug 2024 – May 2025",
       points: [
-        "**Coordinated food and essential supply distribution** to hundreds of families in need in the Layton school and local community.",
+        "**Distributed food and essential supplies** to hundreds of local families.",
         "Prepared and packaged **more than 200 nutritious meals** for local seniors.",
-        "Built community connection through **recreational activities and meaningful conversations** with seniors.",
+        "Engaged with seniors through **recreational activities and meaningful conversations**.",
       ],
       evidence: [
         {
@@ -161,8 +170,8 @@ export const profile: Profile = {
       place: "Truong Khoa Jeans LLC · Ho Chi Minh City, Vietnam",
       dates: "May 2026 – Aug 2026",
       points: [
-        "**Created promotional content** and managed social media channels for a family-owned jeans business.",
-        "**Increased social media reactions by 100%**, attracting more customers and supporting sales.",
+        "**Created promotional content** and managed social media channels for a family-owned denim business.",
+        "**Increased social media reactions by double**, attracting more customers and supporting sales.",
       ],
     },
     {
