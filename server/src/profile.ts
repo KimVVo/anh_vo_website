@@ -58,7 +58,7 @@ export const profile: Profile = {
       logoMark: "SC",
       grade: "Grades 11–12",
       where: "Plano, TX",
-      dates: "Aug 2025 – Present · Expected graduation May 2027",
+      dates: "Aug 2025 – Present · Class of 2027",
     },
     {
       name: "Layton Christian Academy",
