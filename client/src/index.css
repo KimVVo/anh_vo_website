@@ -312,10 +312,11 @@ a:focus-visible {
 }
 .about-bottom strong {
   color: #e7b45a;
-  font-family: var(--font-sans);
-  font-size: 1.7rem;
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-family: "Redaction", var(--font-display), serif;
+  font-size: 1.9rem;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 .about-bottom span {
   color: #c2d0c3;
