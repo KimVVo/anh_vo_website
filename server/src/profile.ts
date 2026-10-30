@@ -1,28 +1,48 @@
-export type Role = { title: string; place: string; dates: string; points: string[] };
-export type School = { name: string; where: string; dates: string };
-export type BlogPost = { title: string; date: string; caption: string; image: string; category?: string };
+export type Role = {
+  title: string;
+  place: string;
+  dates: string;
+  points: string[];
+  evidence?: Evidence[];
+};
+export type School = {
+  name: string;
+  logo?: string;
+  logoBackground?: string;
+  logoMark: string;
+  grade: string;
+  where: string;
+  dates: string;
+};
+export type Evidence = { title: string; image: string; alt: string };
+export type Award = { text: string; evidence?: Evidence };
 export type Profile = {
   name: string;
   tagline: string;
   about: string;
   profilePhoto: string;
-  sat: { math: number; english: number; total: number; percentile: string; date: string };
+  sat: {
+    math: number;
+    english: number;
+    total: number;
+    percentile: string;
+    date: string;
+  };
   gpa: string;
   schools: School[];
-  honors: string[];
-  competitions: string[];
+  honors: Award[];
+  competitions: Award[];
   leadership: Role[];
   service: Role[];
   experience: Role[];
-  blogPosts: BlogPost[];
 };
 
 export const profile: Profile = {
   name: "Anh Vo",
-  tagline: "Student in Plano, Texas · Curious across cultures · Committed to community",
+  tagline: "📍Plano, Texas · Senior High School Student",
   about:
     "I’ve studied in Vietnam, Utah, and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
-  profilePhoto: "/profile.jpg",
+  profilePhoto: "/profile-photo.jpg",
   sat: {
     math: 750,
     english: 650,
@@ -32,22 +52,72 @@ export const profile: Profile = {
   },
   gpa: "3.91–4.00",
   schools: [
-    { name: "Spring Creek Academy", where: "Plano, TX", dates: "Aug 2025 – Present · Expected graduation May 2027" },
-    { name: "Layton Christian Academy", where: "Layton, UT", dates: "Aug 2024 – May 2025" },
-    { name: "Nguyen Hue Middle School", where: "Ho Chi Minh City, Vietnam", dates: "Aug 2023 – May 2024" },
+    {
+      name: "Spring Creek Academy",
+      logo: "/logos/spring-creek-academy.png",
+      logoMark: "SC",
+      grade: "Grades 11–12",
+      where: "Plano, TX",
+      dates: "Aug 2025 – Present · Expected graduation May 2027",
+    },
+    {
+      name: "Layton Christian Academy",
+      logo: "/logos/layton-christian-academy.png",
+      logoBackground: "#89231d",
+      logoMark: "LC",
+      grade: "Grade 10",
+      where: "Layton, UT",
+      dates: "Aug 2024 – May 2025",
+    },
+    {
+      name: "Nguyen Hue Middle School",
+      logo: "/logos/nguyen-hue-middle-school.jpg",
+      logoMark: "NH",
+      grade: "Grade 9",
+      where: "Ho Chi Minh City, Vietnam",
+      dates: "Aug 2023 – May 2024",
+    },
   ],
   honors: [
-    "National Honor Society member, Spring Creek Academy chapter (since September 2026)",
-    "Maintained GPAs of 3.91–4.00 throughout grades 10–12",
-    "Certification of Recognition for Highest Scores, Layton Christian Academy, grade 10 (May 2025)",
-    "Certification of Recognition for Outstanding Academic Achievement in Pre-Calculus, Layton Christian Academy, grade 10 (May 2025)",
-    "Ranked 9th among 400 students at Nguyen Hue Middle School, grade 9 (GPA 9.1/10.00)",
+    {
+      text: "**National Honor Society member**, Spring Creek Academy chapter (since September 2026)",
+      evidence: {
+        title: "National Honor Society Membership",
+        image: "/certificates/national-honor-society.jpg",
+        alt: "National Honor Society membership certificate from Spring Creek Academy for Truong Thien Anh Vo",
+      },
+    },
+    { text: "Maintained **GPAs of 3.91–4.00** throughout grades 10–12" },
+    {
+      text: "**Certification of Recognition for Highest Scores**, Layton Christian Academy, grade 10 (May 2025)",
+      evidence: {
+        title: "Certification of Recognition for Highest Scores",
+        image: "/certificates/layton-highest-scores.jpg",
+        alt: "Certification of Recognition for Highest Scores awarded to Anh Vo in May 2025",
+      },
+    },
+    {
+      text: "**Outstanding Academic Achievement in Pre-Calculus**, Layton Christian Academy, grade 10 (May 2025)",
+      evidence: {
+        title: "Outstanding Academic Achievement in Pre-Calculus",
+        image: "/certificates/layton-precalculus-achievement.jpg",
+        alt: "Certificate of Recognition for Outstanding Academic Achievement in Precalculus awarded to Vo Anh in May 2025",
+      },
+    },
+    { text: "**Ranked 9th among 400 students** at Nguyen Hue Middle School, grade 9 (GPA 9.1/10.00)" },
   ],
   competitions: [
-    "Third Prize, Ho Chi Minh City Excellent Student Competition in Literature (grade 9)",
-    "Second Prize, Tan Phu District Excellent Student Competition in Literature (grade 9)",
-    "Second Prize, Tan Phu District Science and Engineering Competition (grade 9)",
-    "First Prize, “Growing Up with Books” Competition at Nguyen Hue Middle School (grade 9)",
+    {
+      text: "**Third Prize**, Ho Chi Minh City Excellent Student Competition in Literature (grade 9)",
+      evidence: {
+        title: "Ho Chi Minh City Excellent Student Competition in Literature — Third Prize",
+        image: "/certificates/hcmc-literature-third-prize.jpg",
+        alt: "Certificate and award sash for Third Prize in the city-level Literature competition",
+      },
+    },
+    { text: "**Second Prize**, Tan Phu District Excellent Student Competition in Literature (grade 9)" },
+    { text: "**Second Prize**, Tan Phu District Science and Engineering Competition (grade 9)" },
+    { text: "**First Prize**, “Growing Up with Books” Competition at Nguyen Hue Middle School (grade 9)" },
   ],
   leadership: [
     {
@@ -55,9 +125,9 @@ export const profile: Profile = {
       place: "Grades 1–9 · Vietnam",
       dates: "Aug 2015 – May 2024",
       points: [
-        "Helped a class of 40 students complete homework and bring required materials each day.",
-        "Organized group study sessions, paired strong students with peers who needed support, and answered classmates’ lesson questions as a peer teaching assistant.",
-        "Assigned duties for school dance and sports events and organized activities that helped build class unity.",
+        "Helped a **class of 40 students** complete homework and bring required materials each day.",
+        "**Organized group study sessions**, paired strong students with peers who needed support, and answered classmates’ lesson questions as a **peer teaching assistant**.",
+        "Assigned duties for school dance and sports events and **organized activities** that helped build class unity.",
       ],
     },
   ],
@@ -67,9 +137,21 @@ export const profile: Profile = {
       place: "Christian Life Center Church · Layton, UT",
       dates: "Aug 2024 – May 2025",
       points: [
-        "Coordinated distribution of food and essential supplies to hundreds of families in need in the Layton school and local community.",
-        "Prepared and packaged more than 200 nutritious meals for local seniors.",
-        "Connected with seniors through recreational games, activities, and conversations at regular senior home events.",
+        "**Coordinated food and essential supply distribution** to hundreds of families in need in the Layton school and local community.",
+        "Prepared and packaged **more than 200 nutritious meals** for local seniors.",
+        "Built community connection through **recreational activities and meaningful conversations** with seniors.",
+      ],
+      evidence: [
+        {
+          title: "Serving meals to local seniors",
+          image: "/volunteer/senior-meal-service.jpg",
+          alt: "Volunteers serving meals to seniors at a community event",
+        },
+        {
+          title: "Community service volunteer group",
+          image: "/volunteer/community-volunteer-group.jpg",
+          alt: "Group of student volunteers at a community service event",
+        },
       ],
     },
   ],
@@ -79,8 +161,8 @@ export const profile: Profile = {
       place: "Truong Khoa Jeans LLC · Ho Chi Minh City, Vietnam",
       dates: "May 2026 – Aug 2026",
       points: [
-        "Designed promotional posts and videos and managed social media channels for a family-owned jeans business.",
-        "Increased social media reactions by 100%, attracting more customers and supporting sales.",
+        "**Created promotional content** and managed social media channels for a family-owned jeans business.",
+        "**Increased social media reactions by 100%**, attracting more customers and supporting sales.",
       ],
     },
     {
@@ -88,11 +170,17 @@ export const profile: Profile = {
       place: "Friends, family members, and neighbors",
       dates: "Sep 2024 – Present",
       points: [
-        "Cared for five dogs while their owners were away.",
-        "Prepared meals, gave medication, walked, and played with the dogs.",
-        "Received positive feedback from dog owners on the care provided.",
+        "**Cared for five dogs** while their owners were away.",
+        "Handled **feeding, medication, walks, and play** for the dogs.",
+        "Earned **positive feedback** from dog owners on the care provided.",
+      ],
+      evidence: [
+        {
+          title: "Bathing a dog in my care",
+          image: "/experience/pet-sitting-dog-care.jpg",
+          alt: "Anh caring for a dog after bathing it",
+        },
       ],
     },
   ],
-  blogPosts: [],
 };
