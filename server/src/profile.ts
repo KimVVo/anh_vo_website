@@ -41,7 +41,7 @@ export const profile: Profile = {
   name: "Anh Vo",
   tagline: "📍Plano, Texas · Senior High School Student",
   about:
-    "I am an international student in Vietnam. I've studied in Utah and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
+    "I am an international student from Vietnam. I've studied in Utah and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
   profilePhoto: "/profile-photo.jpg",
   sat: {
     math: 750,
