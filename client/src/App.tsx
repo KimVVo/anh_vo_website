@@ -295,7 +295,7 @@ export default function App() {
               <div className="about-actions">
                 <a
                   className="primary-link resume-link"
-                  href="/anh_vo_resume_103026.pdf"
+                  href="/Anh_Vo_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
