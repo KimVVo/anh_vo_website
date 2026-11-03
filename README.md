@@ -16,6 +16,8 @@ Award evidence images are stored under `client/public/certificates/` and configu
 `server/src/profile.ts`.
 Volunteer proof photos are stored under `client/public/volunteer/` and configured on the volunteer role in
 `server/src/profile.ts`.
+Hobby photos are imported from `server/src/hobbies/cooking/` and `server/src/hobbies/crochet/` and bundled with the
+client. Hobby descriptions are configured in the `hobbies` section of `server/src/profile.ts`.
 
 ## Deploy on Vercel
 

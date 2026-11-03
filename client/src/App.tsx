@@ -1,4 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import bakingPhoto from "../../server/src/hobbies/cooking/baking.jpg";
+import cookingPhoto1 from "../../server/src/hobbies/cooking/cooking1.jpg";
+import cookingPhoto2 from "../../server/src/hobbies/cooking/cooking2.jpg";
+import cookingPhoto3 from "../../server/src/hobbies/cooking/cooking3.jpg";
+import crochetPhoto1 from "../../server/src/hobbies/crochet/crochet1.jpg";
+import crochetPhoto2 from "../../server/src/hobbies/crochet/crochet2.jpg";
+import crochetPhoto3 from "../../server/src/hobbies/crochet/crochet3.jpg";
+import crochetPhoto4 from "../../server/src/hobbies/crochet/crochet4.jpg";
 
 type School = {
   name: string;
@@ -18,6 +26,10 @@ type Role = {
 };
 type Evidence = { title: string; image: string; alt: string };
 type Award = { text: string; evidence?: Evidence };
+type Hobby = {
+  title: string;
+  description: string;
+};
 type ServiceRole = {
   title: string;
   place: string;
@@ -44,6 +56,7 @@ type Profile = {
   leadership: Role[];
   service: ServiceRole[];
   experience: Role[];
+  hobbies: Hobby[];
 };
 
 const navigation = [
@@ -53,7 +66,39 @@ const navigation = [
   ["leadership", "Leadership"],
   ["service", "Volunteer"],
   ["experience", "Experience"],
+  ["hobbies", "Hobbies"],
 ];
+
+const hobbyPhotos: Record<string, Evidence[]> = {
+  Cooking: [
+    { title: "Cooking", image: cookingPhoto1, alt: "Anh's cooking" },
+    { title: "Baking", image: bakingPhoto, alt: "Anh's baking" },
+    { title: "Cooking", image: cookingPhoto2, alt: "Anh's cooking" },
+    { title: "Cooking", image: cookingPhoto3, alt: "Anh's cooking" },
+  ],
+  Crocheting: [
+    {
+      title: "Crocheting",
+      image: crochetPhoto1,
+      alt: "A crochet project by Anh",
+    },
+    {
+      title: "Crocheting",
+      image: crochetPhoto2,
+      alt: "A crochet project by Anh",
+    },
+    {
+      title: "Crocheting",
+      image: crochetPhoto3,
+      alt: "A crochet project by Anh",
+    },
+    {
+      title: "Crocheting",
+      image: crochetPhoto4,
+      alt: "A crochet project by Anh",
+    },
+  ],
+};
 
 function PawPrint({ className = "" }: { className?: string }) {
   return (
@@ -156,17 +201,19 @@ function RoleCard({
       </div>
       <BulletList items={role.points} />
       {role.evidence && role.evidence.length > 0 && (
-        <div className="role-evidence" aria-label="Volunteer photo evidence">
+        <div className="role-evidence" aria-label="Portfolio photo evidence">
           {role.evidence.map((evidence) => (
             <button
               className="role-evidence-button"
               key={evidence.image}
               type="button"
-              aria-label={`View volunteer photo: ${evidence.title}`}
+              aria-label={`View photo: ${evidence.title}`}
               onClick={() => onViewEvidence(evidence)}
             >
               <img src={evidence.image} alt="" loading="lazy" />
-              <span>{evidence.title} <span aria-hidden="true">↗</span></span>
+              <span>
+                {evidence.title} <span aria-hidden="true">↗</span>
+              </span>
             </button>
           ))}
         </div>
@@ -179,7 +226,9 @@ export default function App() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [failed, setFailed] = useState(false);
   const [photoFailed, setPhotoFailed] = useState(false);
-  const [selectedEvidence, setSelectedEvidence] = useState<Evidence | null>(null);
+  const [selectedEvidence, setSelectedEvidence] = useState<Evidence | null>(
+    null,
+  );
   const evidenceDialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -240,7 +289,9 @@ export default function App() {
                 Hi, I’m <span>{profile.name}</span>
               </h1>
               <p className="tagline">{profile.tagline}</p>
-              <p className="about-text">{profile.about}</p>
+              <p className="about-text">
+                <HighlightedText text={profile.about} />
+              </p>
               <div className="about-actions">
                 <a
                   className="primary-link resume-link"
@@ -415,6 +466,39 @@ export default function App() {
             </div>
           </section>
 
+          <section className="content-section hobbies-section" id="hobbies">
+            <SectionTitle>Hobbies</SectionTitle>
+            <p className="hobbies-intro">
+              In my free time, I love cooking and crocheting.
+            </p>
+            <div className="hobby-grid">
+              {profile.hobbies.map((hobby) => (
+                <article className="role-card hobby-card" key={hobby.title}>
+                  <h3>{hobby.title}</h3>
+                  <p>{hobby.description}</p>
+                  <div
+                    className="role-evidence"
+                    aria-label={`${hobby.title} photos`}
+                  >
+                    {hobbyPhotos[hobby.title].map((photo) => (
+                      <button
+                        className="role-evidence-button"
+                        key={photo.image}
+                        type="button"
+                        aria-label={`View photo: ${photo.title}`}
+                        onClick={() => setSelectedEvidence(photo)}
+                      >
+                        <img src={photo.image} alt="" loading="lazy" />
+                        <span>
+                          View photo <span aria-hidden="true">↗</span>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
 
@@ -440,7 +524,7 @@ export default function App() {
               <button
                 className="evidence-close"
                 type="button"
-                aria-label="Close certificate viewer"
+                aria-label="Close photo viewer"
                 onClick={() => setSelectedEvidence(null)}
               >
                 ×

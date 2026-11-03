@@ -15,6 +15,10 @@ export type School = {
   dates: string;
 };
 export type Evidence = { title: string; image: string; alt: string };
+export type Hobby = {
+  title: string;
+  description: string;
+};
 export type Award = { text: string; evidence?: Evidence };
 export type Profile = {
   name: string;
@@ -35,13 +39,14 @@ export type Profile = {
   leadership: Role[];
   service: Role[];
   experience: Role[];
+  hobbies: Hobby[];
 };
 
 export const profile: Profile = {
   name: "Anh Vo",
   tagline: "📍Plano, Texas · Senior High School Student",
   about:
-    "I am an international student from Vietnam. I've studied in Utah and Texas, and each community has shaped how I learn and connect with others. I enjoy literature and science, supporting the people around me, and caring for animals.",
+    "I'm Anh, a girl who's **afraid to eat fish** but has **spent her life being one**. I've crossed oceans and found **new waters** to nurture myself, from Utah to Texas. Wherever I go, I carry the breath of my community because, after all, **fish never swim alone**. I hold memories and details close, and perhaps that's why I see myself in the shape of a tree, in human expressions, in animal behavior, and in the sounds of nature. Come back to my water: I'm also a **home chef**, a **crocheter**, and an observer of life's **beloved wonders**.",
   profilePhoto: "/profile-photo.jpg",
   sat: {
     math: 750,
@@ -190,6 +195,16 @@ export const profile: Profile = {
           alt: "Anh caring for a dog after bathing it",
         },
       ],
+    },
+  ],
+  hobbies: [
+    {
+      title: "Cooking",
+      description: "I love cooking and trying new recipes.",
+    },
+    {
+      title: "Crocheting",
+      description: "I love crocheting and making things by hand.",
     },
   ],
 };
