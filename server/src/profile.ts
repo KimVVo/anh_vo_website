@@ -200,7 +200,8 @@ export const profile: Profile = {
   hobbies: [
     {
       title: "Cooking",
-      description: "I love cooking and trying new recipes.",
+      description:
+        " I fancy Vietnamese cuisine and began cooking for my family at eleven. To me, every meal writes a different story whether from my mother’s and grandmother’s hands or a chef’s creativity. Finally, I draw my self into the natural flavors of fresh variety ingredients blend with bold spices, turning every bite into a new water for me.",
     },
     {
       title: "Crocheting",
