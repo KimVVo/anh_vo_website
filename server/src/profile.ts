@@ -205,7 +205,8 @@ export const profile: Profile = {
     },
     {
       title: "Crocheting",
-      description: "I love crocheting and making things by hand.",
+      description:
+        "I started crocheting during the winter of my junior year, initially making pieces for my beloved teachers. As my teacher often says, I have reached a point of having “enough” to give without thinking about money or profit. Beyond the joy of giving, crocheting has become my way of meditation, to calm and to look for my inner soul when the world around me is too busy.",
     },
   ],
 };
